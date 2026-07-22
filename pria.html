@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">Undangan Pernikahan Ikhwan & Anifah - Twilight Saga Edition</title>
+    
+    <!-- OPEN GRAPH META TAGS FOR WHATSAPP PREVIEW (PRIA) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Undangan Pernikahan Ikhwan & Anifah">
+    <meta property="og:description" content="Kami mengundang Anda untuk menyaksikan ikatan janji suci kami.">
+    <meta property="og:image" content="https://ikhwanabdullah42-prog.github.io/pria.html/gambar/bg1.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Google Fonts (Twilight / Gothic Style) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-dark: #080f11;
+            --card-bg: #0d171b;
+            --accent-silver: #d1dee2;
+            --accent-moon: #eaf4f7;
+            --accent-glow: rgba(209, 222, 226, 0.3);
+            --text-light: #e5ecef;
+            --text-muted: #8fa1a7;
+            --border-color: #1f3338;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .wrapper {
+            width: 100%;
+            max-width: 480px;
+            background-color: var(--card-bg);
+            min-height: 100vh;
+            border-left: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            box-shadow: 0 0 35px rgba(0, 0, 0, 0.95);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bokeh-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 6;
+        }
+
+        .bokeh {
+            position: absolute;
+            background: radial-gradient(circle, rgba(234, 244, 247, 0.9) 0%, rgba(209, 222, 226, 0.3) 50%, transparent 100%);
+            border-radius: 50%;
+            filter: blur(1px);
+            animation: floatUp linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(110%) scale(0.4); opacity: 0; }
+            20% { opacity: 0.7; }
+            80% { opacity: 0.7; }
+            100% { transform: translateY(-20%) scale(1.3); opacity: 0; }
+        }
+
+        .ornament {
+            position: absolute;
+            pointer-events: none;
+            z-index: 10;
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.8));
+            animation: ornamentSway 4s ease-in-out infinite alternate;
+        }
+
+        .ornament.top-right { top: 0; right: 0; width: 140px; height: 140px; transform-origin: top right; }
+        .ornament.side-left { top: 38%; left: -5px; width: 90px; height: 160px; transform-origin: left center; }
+        .ornament.side-right { top: 65%; right: -5px; width: 90px; height: 160px; transform-origin: right center; }
+
+        @keyframes ornamentSway {
+            0% { transform: rotate(0deg) scale(1); }
+            100% { transform: rotate(4deg) scale(1.03); }
+        }
+
+        .petal-container {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            overflow: hidden; pointer-events: none; z-index: 20;
+        }
+
+        .petal {
+            position: absolute;
+            background: linear-gradient(135deg, #a80f1d 0%, #580007 70%, #1a0002 100%);
+            border-radius: 12px 1px 12px 1px;
+            opacity: 0.75;
+            box-shadow: 0 0 6px rgba(139, 0, 0, 0.6);
+            animation: fall linear infinite, sway ease-in-out infinite alternate;
+        }
+
+        @keyframes fall { 0% { top: -8%; } 100% { top: 108%; } }
+        @keyframes sway { 0% { transform: rotate(0deg) translateX(0); } 100% { transform: rotate(220deg) translateX(35px); } }
+
+        .hero-header {
+            width: 100%; height: 75vh; max-height: 520px;
+            background-size: cover; background-position: center;
+            display: flex; flex-direction: column; justify-content: flex-end; align-items: center;
+            text-align: center; padding: 30px 20px 40px 20px; position: relative;
+        }
+
+        .hero-subtitle {
+            font-family: 'Cinzel', serif; letter-spacing: 4px; text-transform: uppercase;
+            font-size: 0.8rem; color: var(--accent-silver); margin-bottom: 8px; z-index: 7;
+        }
+
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 700;
+            color: var(--accent-moon); margin-bottom: 8px; line-height: 1.2; z-index: 7;
+        }
+
+        .hero-date {
+            font-family: 'Montserrat', sans-serif; font-size: 0.9rem;
+            color: var(--text-light); letter-spacing: 1px; z-index: 7;
+        }
+
+        .cover {
+            position: fixed; top: 0; left: 50%; transform: translateX(-50%);
+            width: 100%; max-width: 480px; height: 100vh;
+            background-color: #080f11; background-size: cover; background-position: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; padding: 25px; z-index: 9999;
+            transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1), opacity 1.2s ease-in-out, filter 1.2s ease;
+        }
+
+        .cover.hide { transform: translate(-50%, -100%) scale(0.95); opacity: 0; filter: blur(8px); pointer-events: none; }
+
+        h1, h2, h3 { font-family: 'Cormorant Garamond', serif; color: var(--accent-silver); letter-spacing: 2px; font-weight: 600; }
+        .twilight-logo { font-size: 2.3rem; font-weight: 700; letter-spacing: 4px; text-transform: lowercase; color: var(--accent-moon); margin: 15px 0; }
+        .sub-title { font-family: 'Cinzel', serif; letter-spacing: 4px; text-transform: uppercase; font-size: 0.8rem; color: var(--text-muted); }
+
+        .reveal { opacity: 0; transform: translateY(45px); transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .delay-1 { transition-delay: 0.15s; }
+        .delay-2 { transition-delay: 0.3s; }
+
+        .section { padding: 40px 22px; text-align: center; border-bottom: 1px solid var(--border-color); position: relative; }
+        .twilight-divider { margin: 25px auto; width: 75%; height: 1px; background: linear-gradient(90deg, transparent, var(--accent-silver), transparent); position: relative; }
+        .twilight-divider::after { content: "✦"; position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background-color: var(--card-bg); color: var(--accent-silver); padding: 0 8px; font-size: 0.75rem; }
+
+        .profile-frame { width: 135px; height: 135px; margin: 18px auto; border-radius: 50%; border: 1px solid var(--accent-silver); padding: 6px; position: relative; animation: floatSlow 6s ease-in-out infinite; }
+        .profile-frame img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+        .social-link { display: inline-block; margin-top: 10px; color: var(--accent-silver); text-decoration: none; font-size: 0.78rem; border: 1px solid var(--border-color); padding: 5px 14px; border-radius: 20px; background: rgba(255,255,255,0.03); }
+
+        .btn-twilight { background: linear-gradient(135deg, rgba(28,45,50,0.9) 0%, rgba(8,15,17,0.95) 100%); color: var(--accent-moon); border: 1px solid var(--accent-silver); padding: 13px 32px; font-family: 'Cinzel', serif; font-size: 0.82rem; letter-spacing: 3px; cursor: pointer; margin-top: 15px; text-decoration: none; display: inline-block; }
+
+        .timer-container { display: flex; justify-content: center; gap: 12px; margin-top: 22px; }
+        .timer-box { background: rgba(8, 15, 17, 0.85); border: 1px solid var(--border-color); padding: 12px 6px; min-width: 68px; border-radius: 4px; }
+        .timer-num { font-size: 1.6rem; color: var(--accent-moon); font-weight: 700; display: block; }
+        .timer-label { font-size: 0.62rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; display: block; }
+
+        .event-card { background: rgba(13, 23, 27, 0.85); border: 1px solid var(--border-color); padding: 22px; margin-top: 22px; border-radius: 6px; }
+        .map-wrapper { width: 100%; height: 250px; border-radius: 6px; overflow: hidden; border: 1px solid var(--border-color); margin-top: 18px; }
+        .map-wrapper iframe { width: 100%; height: 100%; border: 0; }
+
+        p.desc { color: var(--text-muted); font-size: 0.88rem; line-height: 1.65; }
+
+        .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 22px; }
+        .gallery-item { position: relative; overflow: hidden; border: 1px solid var(--border-color); border-radius: 4px; aspect-ratio: 1 / 1; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+
+        .section-footer { background: linear-gradient(180deg, var(--card-bg) 0%, rgba(20, 5, 8, 0.95) 60%, rgba(8, 15, 17, 0.98) 100%); padding-bottom: 50px; position: relative; }
+
+        .music-btn { position: fixed; bottom: 22px; right: 22px; width: 48px; height: 48px; border-radius: 50%; background: rgba(8, 15, 17, 0.9); border: 1px solid var(--accent-silver); color: var(--accent-silver); display: flex; justify-content: center; align-items: center; cursor: pointer; z-index: 1000; font-size: 1.2rem; }
+        .music-btn.playing { animation: spinSlow 6s linear infinite; }
+
+        @keyframes floatSlow { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+        @keyframes spinSlow { 100% { transform: rotate(360deg); } }
+
+        footer { text-align: center; padding: 25px; font-size: 0.75rem; color: var(--text-muted); border-top: 1px solid var(--border-color); background: rgba(5, 10, 12, 0.98); }
+    </style>
+</head>
+<body>
+
+    <audio id="bg-music" loop><source src="audio/musik.mp3" type="audio/mpeg"></audio>
+    <div class="music-btn" id="musicBtn" onclick="toggleMusic()">🎵</div>
+
+    <div class="cover" id="cover">
+        <span class="sub-title">the wedding saga of</span>
+        <h1 class="twilight-logo">ikhwan <br>&<br> anifah</h1>
+        <div class="twilight-divider"></div>
+        <div class="guest-box" style="margin-bottom: 15px;">
+            <p style="font-size: 0.8rem; color: var(--text-muted); font-style: italic;">Kepada Yth. Bapak/Ibu/Saudara/i:</p>
+            <h3 id="guestName" style="font-family: 'Cinzel', serif; font-size: 1.25rem; color: var(--accent-moon); margin-top: 6px;">Tamu Undangan</h3>
+        </div>
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 15px; font-style: italic;">"Forever is only the beginning."</p>
+        <button class="btn-twilight" onclick="openInvitation()">BUKA UNDANGAN</button>
+    </div>
+
+    <div class="wrapper">
+        <svg class="ornament top-right" viewBox="0 0 100 100" fill="none"><path d="M100 0 C80 20, 40 10, 20 40 C10 55, 15 75, 0 90 C25 80, 35 55, 55 45 C75 35, 85 15, 100 0 Z" fill="#2d4249" opacity="0.65"/><path d="M100 10 C85 25, 50 25, 35 50 C25 65, 30 80, 15 95 C35 85, 45 65, 65 50 C80 40, 90 20, 100 10 Z" fill="#6d8a92" opacity="0.45"/><path d="M90 0 C75 15, 60 5, 45 25 C35 38, 40 55, 25 70 C42 62, 52 45, 68 35 C80 28, 88 12, 90 0 Z" fill="#88131e" opacity="0.55"/></svg>
+        <svg class="ornament side-left" viewBox="0 0 100 200" fill="none"><path d="M0 20 C30 30, 50 60, 40 90 C30 120, 60 150, 0 180 C25 150, 15 110, 25 80 C35 50, 15 30, 0 20 Z" fill="#2d4249" opacity="0.55"/><path d="M0 40 C20 50, 35 75, 25 100 C15 125, 40 145, 0 160 C20 135, 10 100, 18 75 C25 50, 10 40, 0 40 Z" fill="#88131e" opacity="0.45"/></svg>
+        <svg class="ornament side-right" viewBox="0 0 100 200" fill="none"><path d="M100 20 C70 30, 50 60, 60 90 C70 120, 40 150, 100 180 C75 150, 85 110, 75 80 C65 50, 85 30, 100 20 Z" fill="#2d4249" opacity="0.55"/><path d="M100 40 C80 50, 65 75, 75 100 C85 125, 60 145, 100 160 C80 135, 90 100, 82 75 C75 50, 90 40, 100 40 Z" fill="#6d8a92" opacity="0.45"/></svg>
+
+        <div class="petal-container" id="petalContainer"></div>
+
+        <div class="hero-header" id="heroHeader">
+            <div class="bokeh-container" id="bokehContainer"></div>
+            <span class="hero-subtitle reveal">THE WEDDING OF</span>
+            <h1 class="hero-title reveal delay-1">Ikhwan & Anifah</h1>
+            <p class="hero-date reveal delay-2">Sabtu, 26 September 2026</p>
+        </div>
+
+        <section class="section">
+            <div style="display: flex; flex-direction: column;">
+                <div class="reveal" style="order: 1;">
+                    <div class="profile-frame"><img src="gambar/ikhwan.jpeg" alt="Ikhwan Abdullah Cahyono"></div>
+                    <h2 style="font-size: 1.4rem; margin-top: 10px;">Ikhwan Abdullah Cahyono, S.Kom.</h2>
+                    <p class="desc" style="font-size: 0.8rem; margin-top: 5px;">Putra Pertama dari Pasangan:<br><strong>Bpk. Andri Agus Cahyono, S.Pd.</strong><br>&<br><strong>Ibu Endang Sri Lestari, S.Pd.</strong></p>
+                    <a href="https://instagram.com/ikhwanabdl_" target="_blank" class="social-link">📷 @ikhwanabdl_</a>
+                </div>
+                <p class="reveal" style="order: 2; margin: 25px 0; font-family: 'Cormorant Garamond'; color: var(--accent-silver); font-size: 2rem;">&</p>
+                <div class="reveal" style="order: 3;">
+                    <div class="profile-frame"><img src="gambar/anifah.jpeg" alt="Anifah Nur Isnaini"></div>
+                    <h2 style="font-size: 1.4rem; margin-top: 10px;">Anifah Nur Isnaini</h2>
+                    <p class="desc" style="font-size: 0.8rem; margin-top: 5px;">Putri Kedua dari Pasangan:<br><strong>Bpk. Guntoro</strong><br>&<br><strong>Ibu Sagiyem</strong></p>
+                    <a href="https://instagram.com/anifahnr" target="_blank" class="social-link">📷 @anifahnr</a>
+                </div>
+            </div>
+            <div class="twilight-divider reveal"></div>
+            <p class="desc reveal" style="font-style: italic; max-width: 360px; margin: 0 auto;">"Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu..."<br><strong style="color: var(--accent-silver); display: block; margin-top: 8px;">(QS. Ar-Rum: 21)</strong></p>
+        </section>
+
+        <section class="section">
+            <span class="sub-title reveal">Counting Down To Eternity</span>
+            <h2 class="reveal delay-1" style="font-size: 1.3rem; margin-top: 10px; font-family: 'Cinzel', serif;">Sabtu, 26 September 2026</h2>
+            <div class="timer-container reveal delay-2" id="countdown">
+                <div class="timer-box"><span class="timer-num" id="days">00</span><span class="timer-label">Hari</span></div>
+                <div class="timer-box"><span class="timer-num" id="hours">00</span><span class="timer-label">Jam</span></div>
+                <div class="timer-box"><span class="timer-num" id="minutes">00</span><span class="timer-label">Menit</span></div>
+                <div class="timer-box"><span class="timer-num" id="seconds">00</span><span class="timer-label">Detik</span></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <span class="sub-title reveal">Rangkaian Acara</span>
+            <div class="event-card reveal">
+                <h3>Akad Nikah</h3>
+                <p class="desc" style="color: var(--accent-silver); font-weight: 600;">Sabtu, 26 September 2026</p>
+                <p class="desc">Pukul 08.00 - 10.00 WIB</p>
+                <div class="twilight-divider" style="margin: 12px auto; width: 40%;"></div>
+                <p class="desc">Ngaron, Belang Wetan, Kec. Klaten Utara, Kabupaten Klaten, Jawa Tengah 57465</p>
+            </div>
+            <div class="event-card reveal delay-1">
+                <h3>Resepsi / Ngunduh Mantu</h3>
+                <p class="desc" style="color: var(--accent-silver); font-weight: 600;">Sabtu, 26 September 2026</p>
+                <p class="desc">Pukul 19.00 - 21.00 WIB</p>
+                <div class="twilight-divider" style="margin: 12px auto; width: 40%;"></div>
+                <p class="desc">Dk. Soprayan, Ds. Kahuman, Kec. Ngawen, Kabupaten Klaten, Jawa Tengah 57466</p>
+                <div class="map-wrapper">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d988.5409711640551!2d110.5975445!3d-7.6655232!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a4344f9777bf9%3A0xa574305b4b11c3f!2sTB.%20PAK%20ANDRI%20Berkah%20Jaya!5e0!3m2!1sid!2sid!4v1784704327408!5m2!1sid!2sid" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+            <a href="https://maps.app.goo.gl/asQhn7UtfzaejDCL8" target="_blank" class="btn-twilight reveal delay-2">📍 PETUNJUK LOKASI (MAPS)</a>
+        </section>
+
+        <section class="section">
+            <span class="sub-title reveal">Moments In Time</span>
+            <div class="gallery-grid">
+                <div class="gallery-item reveal"><img src="gambar/galeri/foto1.jpeg" alt="1"></div>
+                <div class="gallery-item reveal delay-1"><img src="gambar/galeri/foto2.jpeg" alt="2"></div>
+                <div class="gallery-item reveal"><img src="gambar/galeri/foto3.jpeg" alt="3"></div>
+                <div class="gallery-item reveal delay-1"><img src="gambar/galeri/foto4.jpeg" alt="4"></div>
+                <div class="gallery-item reveal"><img src="gambar/galeri/foto5.jpeg" alt="5"></div>
+                <div class="gallery-item reveal delay-1"><img src="gambar/galeri/foto6.jpeg" alt="6"></div>
+                <div class="gallery-item reveal"><img src="gambar/galeri/foto7.jpeg" alt="7"></div>
+                <div class="gallery-item reveal delay-1"><img src="gambar/galeri/foto8.jpeg" alt="8"></div>
+                <div class="gallery-item reveal"><img src="gambar/galeri/foto9.jpeg" alt="9"></div>
+            </div>
+        </section>
+
+        <section class="section section-footer">
+            <div class="twilight-divider reveal"></div>
+            <p class="desc reveal">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kami.</p>
+            <p class="reveal delay-1" style="margin-top: 25px; font-family: 'Cormorant Garamond'; color: var(--accent-silver); font-size: 1.6rem; letter-spacing: 2px;">Ikhwan & Anifah</p>
+        </section>
+
+        <footer>&copy; 2026 The Wedding Saga of Ikhwan & Anifah. All Rights Reserved.</footer>
+    </div>
+
+    <script>
+        const audio = document.getElementById('bg-music');
+        const musicBtn = document.getElementById('musicBtn');
+        let isPlaying = false, wasPlayingBeforeHide = false;
+
+        function initParams() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const guestNameParam = urlParams.get('to');
+            if (guestNameParam) document.getElementById('guestName').innerText = guestNameParam;
+            
+            document.getElementById('cover').style.backgroundImage = "linear-gradient(180deg, rgba(8,15,17,0.3) 0%, rgba(8,15,17,0.95) 100%), url('gambar/bg1.jpg')";
+            document.getElementById('heroHeader').style.backgroundImage = "linear-gradient(180deg, rgba(8,15,17,0.2) 0%, rgba(13,23,27,0.6) 60%, var(--card-bg) 100%), url('gambar/bgdalam1.jpg')";
+        }
+
+        function openInvitation() {
+            document.getElementById('cover').classList.add('hide');
+            document.body.style.overflow = 'auto';
+            playAudio(); createPetals(); createBokeh(); initScrollReveal();
+        }
+
+        function playAudio() {
+            audio.play().then(() => { isPlaying = true; musicBtn.classList.add('playing'); musicBtn.innerText = "🎵"; }).catch(err => console.log(err));
+        }
+
+        function toggleMusic() {
+            if (isPlaying) { audio.pause(); isPlaying = false; wasPlayingBeforeHide = false; musicBtn.classList.remove('playing'); musicBtn.innerText = "🔇"; }
+            else { audio.play(); isPlaying = true; musicBtn.classList.add('playing'); musicBtn.innerText = "🎵"; }
+        }
+
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) { if (isPlaying) { wasPlayingBeforeHide = true; audio.pause(); musicBtn.classList.remove('playing'); musicBtn.innerText = "🔇"; } }
+            else { if (wasPlayingBeforeHide) { audio.play().then(() => { isPlaying = true; wasPlayingBeforeHide = false; musicBtn.classList.add('playing'); musicBtn.innerText = "🎵"; }); } }
+        });
+
+        function initScrollReveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+            }, { threshold: 0.12 });
+            reveals.forEach(el => observer.observe(el));
+        }
+
+        function createBokeh() {
+            const container = document.getElementById('bokehContainer');
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('bokeh');
+                const size = Math.random() * 8 + 4;
+                particle.style.width = size + 'px'; particle.style.height = size + 'px';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDuration = (Math.random() * 4 + 4) + 's';
+                particle.style.animationDelay = (Math.random() * 5) + 's';
+                container.appendChild(particle);
+            }
+        }
+
+        function createPetals() {
+            const container = document.getElementById('petalContainer');
+            for (let i = 0; i < 18; i++) {
+                const petal = document.createElement('div');
+                petal.classList.add('petal');
+                const size = Math.random() * 12 + 10;
+                petal.style.width = size + 'px'; petal.style.height = (size * 1.3) + 'px';
+                petal.style.left = Math.random() * 100 + '%';
+                petal.style.animationDuration = (Math.random() * 5 + 6) + 's, ' + (Math.random() * 3 + 2.5) + 's';
+                petal.style.animationDelay = (Math.random() * 6) + 's, ' + (Math.random() * 2) + 's';
+                container.appendChild(petal);
+            }
+        }
+
+        const eventDate = new Date("2026-09-26T08:00:00").getTime();
+        const timer = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+            if (distance > 0) {
+                document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
+                document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
+            } else { clearInterval(timer); }
+        }, 1000);
+
+        window.addEventListener('DOMContentLoaded', initParams);
+    </script>
+</body>
+</html>
