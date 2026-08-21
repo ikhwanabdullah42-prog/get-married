@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="pageTitle">UNDANGAN NGUNDUH MANTU</title>
+    <title id="pageTitle">The Wedding Of Ikhwan & Anifah</title>
     
     <!-- OPEN GRAPH META TAGS FOR WHATSAPP PREVIEW (PRIA) -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="The Wedding Of Ikhwan & Anifah">
     <meta property="og:description" content="Kami mengundang Anda untuk menyaksikan ikatan janji suci kami.">
-    <meta property="og:image" content="https://ikhwanabdullah42-prog.github.io/get-married/gambar/bg1.png">
+    <meta property="og:image" content="https://ikhwanabdullah42-prog.github.io/get-married/gambar/sampul.depan.jpeg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
 
@@ -53,25 +53,39 @@
             position: relative; overflow: hidden;
         }
 
-        .bokeh-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; pointer-events: none; z-index: 6; }
+        /* --- BACKGROUND PALING BELAKANG (11.png) --- */
+        .wrapper::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('gambar/11.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.06;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .bokeh-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; pointer-events: none; z-index: 1; }
         .bokeh { position: absolute; background: radial-gradient(circle, rgba(234, 244, 247, 0.9) 0%, rgba(209, 222, 226, 0.3) 50%, transparent 100%); border-radius: 50%; filter: blur(1px); animation: floatUp linear infinite; }
 
         @keyframes floatUp { 0% { transform: translateY(110%) scale(0.4); opacity: 0; } 20% { opacity: 0.7; } 80% { opacity: 0.7; } 100% { transform: translateY(-20%) scale(1.3); opacity: 0; } }
 
-        .ornament { position: absolute; pointer-events: none; z-index: 10; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.8)); animation: ornamentSway 4s ease-in-out infinite alternate; }
-        .ornament.top-right { top: 0; right: 0; width: 140px; height: 140px; transform-origin: top right; }
-        .ornament.side-left { top: 38%; left: -5px; width: 90px; height: 160px; transform-origin: left center; }
-        .ornament.side-right { top: 65%; right: -5px; width: 90px; height: 160px; transform-origin: right center; }
-
-        @keyframes ornamentSway { 0% { transform: rotate(0deg) scale(1); } 100% { transform: rotate(4deg) scale(1.03); } }
-
+        /* --- ANIMASI KELOPAK BUNGA GUGUR SISI PINGGIR --- */
         .petal-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; pointer-events: none; z-index: 20; }
-        .petal { position: absolute; background: linear-gradient(135deg, #a80f1d 0%, #580007 70%, #1a0002 100%); border-radius: 12px 1px 12px 1px; opacity: 0.75; box-shadow: 0 0 6px rgba(139, 0, 0, 0.6); animation: fall linear infinite, sway ease-in-out infinite alternate; }
+        .petal { 
+            position: absolute; 
+            background: linear-gradient(135deg, #a80f1d 0%, #580007 70%, #1a0002 100%); 
+            border-radius: 12px 1px 12px 1px; 
+            opacity: 0.8; 
+            box-shadow: 0 0 6px rgba(139, 0, 0, 0.7); 
+            animation: fallSide linear infinite, swaySide ease-in-out infinite alternate; 
+        }
 
-        @keyframes fall { 0% { top: -8%; } 100% { top: 108%; } }
-        @keyframes sway { 0% { transform: rotate(0deg) translateX(0); } 100% { transform: rotate(220deg) translateX(35px); } }
+        @keyframes fallSide { 0% { top: -6%; } 100% { top: 106%; } }
+        @keyframes swaySide { 0% { transform: rotate(0deg) translateX(0); } 100% { transform: rotate(180deg) translateX(15px); } }
 
-        .hero-header { width: 100%; height: 75vh; max-height: 520px; background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; text-align: center; padding: 30px 20px 40px 20px; position: relative; }
+        .hero-header { width: 100%; height: 75vh; max-height: 520px; background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; text-align: center; padding: 30px 20px 40px 20px; position: relative; z-index: 5; }
         .hero-subtitle { font-family: 'Cinzel', serif; letter-spacing: 4px; text-transform: uppercase; font-size: 0.8rem; color: var(--accent-silver); margin-bottom: 8px; z-index: 7; }
         .hero-title { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 700; color: var(--accent-moon); margin-bottom: 8px; line-height: 1.2; z-index: 7; }
         .hero-date { font-family: 'Montserrat', sans-serif; font-size: 0.9rem; color: var(--text-light); letter-spacing: 1px; z-index: 7; }
@@ -88,12 +102,12 @@
         .cover.hide { transform: translate(-50%, -100%) scale(0.95); opacity: 0; filter: blur(8px); pointer-events: none; }
 
         h1, h2, h3 { font-family: 'Cormorant Garamond', serif; color: var(--accent-silver); letter-spacing: 2px; font-weight: 600; }
-        .twilight-logo { font-size: 2.2rem; font-weight: 700; letter-spacing: 3px; text-transform: lowercase; color: var(--accent-moon); margin: 8px 0; line-height: 1.15; }
+        .twilight-logo { font-size: 2.2rem; font-weight: 700; letter-spacing: 3px; text-transform: lowercase; color: var(--accent-moon); margin: 6px 0; line-height: 1.15; }
         .sub-title { font-family: 'Cinzel', serif; letter-spacing: 4px; text-transform: uppercase; font-size: 0.72rem; color: var(--text-muted); }
 
         /* Container Nama Tamu */
         .guest-box {
-            margin: 10px 0 12px 0;
+            margin: 12px 0 10px 0;
             width: 100%;
             max-width: 340px;
         }
@@ -105,7 +119,7 @@
             justify-content: center;
             width: 80%;
             max-width: 320px;
-            margin: 8px auto;
+            margin: 6px auto;
             color: var(--accent-silver);
             font-size: 0.68rem;
             font-family: 'Cinzel', serif;
@@ -123,7 +137,7 @@
         .delay-1 { transition-delay: 0.15s; }
         .delay-2 { transition-delay: 0.3s; }
 
-        .section { padding: 40px 22px; text-align: center; border-bottom: 1px solid var(--border-color); position: relative; }
+        .section { padding: 40px 22px; text-align: center; border-bottom: 1px solid var(--border-color); position: relative; z-index: 5; }
         .twilight-divider { margin: 20px auto; width: 75%; height: 1px; background: linear-gradient(90deg, transparent, var(--accent-silver), transparent); position: relative; }
         .twilight-divider::after { content: "✦"; position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background-color: var(--card-bg); color: var(--accent-silver); padding: 0 8px; font-size: 0.75rem; }
 
@@ -147,7 +161,7 @@
         }
 
         /* Styling Timer Countdown di Sampul */
-        .timer-container { display: flex; justify-content: center; gap: 8px; margin-top: 8px; }
+        .timer-container { display: flex; justify-content: center; gap: 8px; margin-top: 6px; }
         .timer-box { 
             background: rgba(8, 15, 17, 0.85); 
             border: 1px solid var(--border-color); 
@@ -159,61 +173,73 @@
         .timer-num { font-size: 1.3rem; color: var(--accent-moon); font-weight: 700; display: block; }
         .timer-label { font-size: 0.58rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; display: block; }
 
-        /* Frame khusus Mempelai */
-        .couple-card {
-            background: rgba(13, 23, 27, 0.85);
+        /* Frame khusus Mempelai & Rangkaian Acara dengan Background Gambar 1.png */
+        .couple-card, .event-card {
+            background: rgba(13, 23, 27, 0.88);
             border: 1px solid var(--border-color);
-            padding: 24px 18px;
             border-radius: 8px;
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
             backdrop-filter: blur(4px);
             position: relative;
+            z-index: 5;
+            overflow: hidden;
         }
+
+        .couple-card { padding: 24px 18px; }
+        .event-card { padding: 22px; margin-top: 22px; }
+
+        /* Layer Gambar 1.png Dalam Frame */
+        .couple-card::after, .event-card::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('gambar/1.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.25;
+            z-index: -1;
+            pointer-events: none;
+        }
+
         .couple-card::before {
             content: "";
             position: absolute;
             top: 6px; left: 6px; right: 6px; bottom: 6px;
-            border: 1px dashed rgba(209, 222, 226, 0.15);
+            border: 1px dashed rgba(209, 222, 226, 0.2);
             border-radius: 4px;
             pointer-events: none;
+            z-index: 1;
         }
 
-        .event-card { background: rgba(13, 23, 27, 0.85); border: 1px solid var(--border-color); padding: 22px; margin-top: 22px; border-radius: 6px; }
-        .map-wrapper { width: 100%; height: 250px; border-radius: 6px; overflow: hidden; border: 1px solid var(--border-color); margin-top: 18px; }
+        .map-wrapper { width: 100%; height: 250px; border-radius: 6px; overflow: hidden; border: 1px solid var(--border-color); margin-top: 18px; position: relative; z-index: 2; }
         .map-wrapper iframe { width: 100%; height: 100%; border: 0; }
 
-        p.desc { color: var(--text-muted); font-size: 0.88rem; line-height: 1.65; }
+        p.desc { color: var(--text-muted); font-size: 0.88rem; line-height: 1.65; position: relative; z-index: 2; }
 
-        .section-footer { background: linear-gradient(180deg, var(--card-bg) 0%, rgba(20, 5, 8, 0.95) 60%, rgba(8, 15, 17, 0.98) 100%); padding-bottom: 50px; position: relative; }
+        .section-footer { background: linear-gradient(180deg, var(--card-bg) 0%, rgba(20, 5, 8, 0.95) 60%, rgba(8, 15, 17, 0.98) 100%); padding-bottom: 50px; position: relative; z-index: 5; }
 
         .music-btn { position: fixed; bottom: 22px; right: 22px; width: 48px; height: 48px; border-radius: 50%; background: rgba(8, 15, 17, 0.9); border: 1px solid var(--accent-silver); color: var(--accent-silver); display: flex; justify-content: center; align-items: center; cursor: pointer; z-index: 1000; font-size: 1.2rem; }
         .music-btn.playing { animation: spinSlow 6s linear infinite; }
 
         @keyframes spinSlow { 100% { transform: rotate(360deg); } }
 
-        footer { text-align: center; padding: 25px; font-size: 0.75rem; color: var(--text-muted); border-top: 1px solid var(--border-color); background: rgba(5, 10, 12, 0.98); }
+        footer { text-align: center; padding: 25px; font-size: 0.75rem; color: var(--text-muted); border-top: 1px solid var(--border-color); background: rgba(5, 10, 12, 0.98); position: relative; z-index: 5; }
     </style>
 </head>
 <body>
 
-    <audio id="bg-music" loop><source src="audio/musik1.mp3" type="audio/mpeg"></audio>
+    <audio id="bg-music" loop><source src="audio/pria.mp3" type="audio/mpeg"></audio>
     <div class="music-btn" id="musicBtn" onclick="toggleMusic()">🎵</div>
 
-    <!-- Halaman Sampul / Cover -->
+    <!-- Halaman Sampul / Cover Mempelai Pria -->
     <div class="cover" id="cover">
         <span class="sub-title" style="letter-spacing: 5px;">YOU ARE INVITED</span>
         
         <h1 class="twilight-logo">ikhwan <br>&<br> anifah</h1>
         
-        <p style="color: var(--accent-silver); font-size: 0.75rem; margin: 2px 0 6px 0;">✦</p>
+        <p style="color: var(--accent-silver); font-size: 0.75rem; margin: 2px 0 4px 0;">✦</p>
 
-        <!-- Nama Tamu Presisi di Kolom Grafis -->
-        <div class="guest-box">
-            <p style="font-size: 0.75rem; color: var(--text-muted); font-style: italic;">Kepada Yth. Bapak/Ibu/Saudara/i:</p>
-            <h3 id="guestName" style="font-family: 'Cinzel', serif; font-size: 1.25rem; color: var(--accent-moon); margin-top: 4px; letter-spacing: 2px; text-transform: uppercase;">TAMU UNDANGAN</h3>
-        </div>
-
-        <!-- Pembatas dan Timer Countdown -->
+        <!-- POSISI 1: Countdown Timer di Atas -->
         <div class="cover-divider">
             <span>COUNTING DOWN TO ETERNITY</span>
         </div>
@@ -225,7 +251,13 @@
             <div class="timer-box"><span class="timer-num" id="seconds">00</span><span class="timer-label">Detik</span></div>
         </div>
 
-        <div class="cover-divider" style="margin-top: 10px; margin-bottom: 6px;"></div>
+        <div class="cover-divider" style="margin-top: 10px; margin-bottom: 4px;"></div>
+
+        <!-- POSISI 2: Nama Tamu Undangan -->
+        <div class="guest-box">
+            <p style="font-size: 0.75rem; color: var(--text-muted); font-style: italic;">Kepada Yth. Bapak/Ibu/Saudara/i:</p>
+            <h3 id="guestName" style="font-family: 'Cinzel', serif; font-size: 1.3rem; color: var(--accent-moon); margin-top: 4px; letter-spacing: 2px; text-transform: uppercase;">TAMU UNDANGAN</h3>
+        </div>
 
         <p style="font-size: 0.78rem; color: var(--text-muted); font-style: italic; margin-bottom: 4px;">"Forever is only the beginning."</p>
         
@@ -234,10 +266,6 @@
 
     <!-- Isi Undangan Utama -->
     <div class="wrapper">
-        <svg class="ornament top-right" viewBox="0 0 100 100" fill="none"><path d="M100 0 C80 20, 40 10, 20 40 C10 55, 15 75, 0 90 C25 80, 35 55, 55 45 C75 35, 85 15, 100 0 Z" fill="#2d4249" opacity="0.65"/><path d="M100 10 C85 25, 50 25, 35 50 C25 65, 30 80, 15 95 C35 85, 45 65, 65 50 C80 40, 90 20, 100 10 Z" fill="#6d8a92" opacity="0.45"/><path d="M90 0 C75 15, 60 5, 45 25 C35 38, 40 55, 25 70 C42 62, 52 45, 68 35 C80 28, 88 12, 90 0 Z" fill="#88131e" opacity="0.55"/></svg>
-        <svg class="ornament side-left" viewBox="0 0 100 200" fill="none"><path d="M0 20 C30 30, 50 60, 40 90 C30 120, 60 150, 0 180 C25 150, 15 110, 25 80 C35 50, 15 30, 0 20 Z" fill="#2d4249" opacity="0.55"/><path d="M0 40 C20 50, 35 75, 25 100 C15 125, 40 145, 0 160 C20 135, 10 100, 18 75 C25 50, 10 40, 0 40 Z" fill="#88131e" opacity="0.45"/></svg>
-        <svg class="ornament side-right" viewBox="0 0 100 200" fill="none"><path d="M100 20 C70 30, 50 60, 60 90 C70 120, 40 150, 100 180 C75 150, 85 110, 75 80 C65 50, 85 30, 100 20 Z" fill="#2d4249" opacity="0.55"/><path d="M100 40 C80 50, 65 75, 75 100 C85 125, 60 145, 100 160 C80 135, 90 100, 82 75 C75 50, 90 40, 100 40 Z" fill="#6d8a92" opacity="0.45"/></svg>
-
         <div class="petal-container" id="petalContainer"></div>
 
         <div class="hero-header" id="heroHeader">
@@ -249,29 +277,29 @@
 
         <section class="section">
             <div style="display: flex; flex-direction: column; gap: 8px;">
-                <!-- Bingkai Mempelai Pria -->
+                <!-- Bingkai Mempelai Pria Pertama -->
                 <div class="couple-card reveal" style="order: 1;">
-                    <h2 style="font-size: 1.55rem; color: var(--accent-moon);">Ikhwan Abdullah Cahyono, S.Kom.</h2>
+                    <h2 style="font-size: 1.55rem; color: var(--accent-moon); position: relative; z-index: 2;">Ikhwan Abdullah Cahyono, S.Kom.</h2>
                     <p class="desc" style="font-size: 0.85rem; margin-top: 8px;">
                         Putra Pertama dari Pasangan:<br>
                         <strong style="color: var(--accent-silver);">Bpk. Andri Agus Cahyono, S.Pd.</strong><br>&<br>
                         <strong style="color: var(--accent-silver);">Ibu Endang Sri Lestari, S.Pd.</strong>
                     </p>
-                    <a href="https://instagram.com/ikhwanabdl_" target="_blank" class="social-link">📷 @ikhwanabdl_</a>
+                    <a href="https://instagram.com/ikhwanabdl_" target="_blank" class="social-link" style="position: relative; z-index: 2;">📷 @ikhwanabdl_</a>
                 </div>
                 
                 <!-- Simbol Pembatas -->
                 <p class="reveal" style="order: 2; margin: 12px 0; font-family: 'Cormorant Garamond'; color: var(--accent-silver); font-size: 2.2rem;">&</p>
                 
-                <!-- Bingkai Mempelai Wanita -->
+                <!-- Bingkai Mempelai Wanita Kedua -->
                 <div class="couple-card reveal" style="order: 3;">
-                    <h2 style="font-size: 1.55rem; color: var(--accent-moon);">Anifah Nur Isnaini</h2>
+                    <h2 style="font-size: 1.55rem; color: var(--accent-moon); position: relative; z-index: 2;">Anifah Nur Isnaini</h2>
                     <p class="desc" style="font-size: 0.85rem; margin-top: 8px;">
                         Putri Kedua dari Pasangan:<br>
                         <strong style="color: var(--accent-silver);">Bpk. Guntoro</strong><br>&<br>
                         <strong style="color: var(--accent-silver);">Ibu Sagiyem</strong>
                     </p>
-                    <a href="https://instagram.com/anifahhnr" target="_blank" class="social-link">📷 @anifahhnr</a>
+                    <a href="https://instagram.com/anifahhnr" target="_blank" class="social-link" style="position: relative; z-index: 2;">📷 @anifahhnr</a>
                 </div>
             </div>
             
@@ -281,17 +309,31 @@
 
         <section class="section">
             <span class="sub-title reveal">Rangkaian Acara</span>
+            
+            <!-- Ngunduh Mantu (Acara Utama Pria) -->
             <div class="event-card reveal">
-                <h3>Ngunduh Mantu</h3>
+                <h3 style="position: relative; z-index: 2;">Ngunduh Mantu</h3>
                 <p class="desc" style="color: var(--accent-silver); font-weight: 600;">Minggu, 27 September 2026</p>
                 <p class="desc">Pukul 19.00 - 21.00 WIB</p>
-                <div class="twilight-divider" style="margin: 12px auto; width: 40%;"></div>
+                <div class="twilight-divider" style="margin: 12px auto; width: 40%; z-index: 2;"></div>
                 <p class="desc">Dk. Soprayan, Ds. Kahuman, Kec. Ngawen, Kabupaten Klaten, Jawa Tengah 57466</p>
+                
+                <!-- Maps Iframe Mempelai Pria -->
                 <div class="map-wrapper">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d988.5409711640551!2d110.5975445!3d-7.6655232!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a4344f9777bf9%3A0xa574305b4b11c3f!2sTB.%20PAK%20ANDRI%20Berkah%20Jaya!5e0!3m2!1sid!2sid!4v1784704327408!5m2!1sid!2sid" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!4v1787287506130!6m8!1m7!1sK8XUQ9ReqzUsFxO6VkRmaQ!2m2!1d-7.665578311083491!2d110.5976921186979!3f282.19366402251904!4f-1.8497751873473902!5f0.7820865974627469" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
                 </div>
+                <!-- Petunjuk Lokasi Khusus Pria -->
+                <a href="https://www.google.com/maps?q=-7.665578311083491,110.5976921186979" target="_blank" class="btn-twilight" style="margin-top: 15px; width: 100%; position: relative; z-index: 2;">📍 PETUNJUK LOKASI (MAPS)</a>
             </div>
-            <a href="https://maps.app.goo.gl/asQhn7UtfzaejDCL8" target="_blank" class="btn-twilight reveal delay-2">📍 PETUNJUK LOKASI (MAPS)</a>
+
+            <!-- Resepsi -->
+            <div class="event-card reveal delay-1">
+                <h3 style="position: relative; z-index: 2;">Resepsi</h3>
+                <p class="desc" style="color: var(--accent-silver); font-weight: 600;">Minggu, 27 September 2026</p>
+                <p class="desc">SELESAI</p>
+                <div class="twilight-divider" style="margin: 12px auto; width: 40%; z-index: 2;"></div>
+                <p class="desc">Ngaron, Belang Wetan, Kec. Klaten Utara, Kabupaten Klaten, Jawa Tengah 57465</p>
+            </div>
         </section>
 
         <section class="section section-footer">
@@ -300,7 +342,7 @@
             <p class="reveal delay-1" style="margin-top: 25px; font-family: 'Cormorant Garamond'; color: var(--accent-silver); font-size: 1.6rem; letter-spacing: 2px;">Ikhwan & Anifah</p>
         </section>
 
-        <footer>&copy; 2026 The Wedding Saga of Ikhwan & Anifah. All Rights Reserved.</footer>
+        <footer>&copy; 2026 The Wedding of Ikhwan & Anifah. All Rights Reserved.</footer>
     </div>
 
     <script>
@@ -313,8 +355,8 @@
             const guestNameParam = urlParams.get('to');
             if (guestNameParam) document.getElementById('guestName').innerText = guestNameParam;
             
-            document.getElementById('cover').style.backgroundImage = "linear-gradient(180deg, rgba(8,15,17,0.3) 0%, rgba(8,15,17,0.95) 100%), url('gambar/bg1.png')";
-            document.getElementById('heroHeader').style.backgroundImage = "linear-gradient(180deg, rgba(8,15,17,0.2) 0%, rgba(13,23,27,0.6) 60%, var(--card-bg) 100%), url('gambar/bgdalam1.jpg')";
+            document.getElementById('cover').style.backgroundImage = "linear-gradient(180deg, rgba(8,15,17,0.3) 0%, rgba(8,15,17,0.95) 100%), url('gambar/sampul.depan.jpeg')";
+            document.getElementById('heroHeader').style.backgroundImage = "linear-gradient(180deg, rgba(8,15,17,0.2) 0%, rgba(13,23,27,0.6) 60%, var(--card-bg) 100%), url('gambar/hero.jpeg')";
         }
 
         function openInvitation() {
@@ -361,14 +403,31 @@
 
         function createPetals() {
             const container = document.getElementById('petalContainer');
-            for (let i = 0; i < 18; i++) {
+            container.innerHTML = ''; 
+
+            const totalPetals = 20; 
+            for (let i = 0; i < totalPetals; i++) {
                 const petal = document.createElement('div');
                 petal.classList.add('petal');
-                const size = Math.random() * 12 + 10;
-                petal.style.width = size + 'px'; petal.style.height = (size * 1.3) + 'px';
-                petal.style.left = Math.random() * 100 + '%';
-                petal.style.animationDuration = (Math.random() * 5 + 6) + 's, ' + (Math.random() * 3 + 2.5) + 's';
-                petal.style.animationDelay = (Math.random() * 6) + 's, ' + (Math.random() * 2) + 's';
+                
+                const size = Math.random() * 8 + 10; 
+                petal.style.width = size + 'px'; 
+                petal.style.height = (size * 1.3) + 'px';
+                
+                const isLeft = i % 2 === 0;
+                const posPercent = isLeft 
+                    ? (Math.random() * 12)          
+                    : (Math.random() * 12 + 86);    
+                
+                petal.style.left = posPercent + '%';
+                
+                const fallSpeed = (Math.random() * 4 + 6) + 's';
+                const swaySpeed = (Math.random() * 2.5 + 2) + 's';
+                const delay = (Math.random() * 5) + 's';
+
+                petal.style.animationDuration = fallSpeed + ', ' + swaySpeed;
+                petal.style.animationDelay = delay + ', ' + (Math.random() * 2) + 's';
+
                 container.appendChild(petal);
             }
         }
